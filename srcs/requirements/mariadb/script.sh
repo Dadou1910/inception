@@ -5,16 +5,25 @@ if pgrep mysqld > /dev/null; then
     killall -9 mysqld mysqld_safe
 fi
 
+# Makes sapces to regenerate clean logs
 rm -f /var/lib/mysql/aria_log_control /var/lib/mysql/aria_log.*
 
+# Prepares the mysql runtime directory
+# -p ensures it does not fail in case the directory is already there
 mkdir -p /run/mysqld
+# -R is for recursive : applies for all files in directory
 chown -R mysql:mysql /run/mysqld
 
+# Check if MariaDB is initialized (if var/lib...etc exists),
+# initializes if not
+# --user=mysql for correct user
+# --ldata..etc... for data directory
 if [ ! -d "/var/lib/mysql/mysql" ]; then
     echo "Initialisation of database"
     mysql_install_db --user=mysql --ldata=/var/lib/mysql
 fi
 
+# Starts MariaDB server and allows external connections
 echo "MariaDB is starting"
 mysqld --bind-address=0.0.0.0 &
 sleep 5
