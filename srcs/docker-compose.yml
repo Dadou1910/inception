@@ -36,10 +36,13 @@ services:
 
 volumes:
   brow:
+    # Uses local storage driver to manage volume (host machine)
     driver: local
     driver_opts:
+      # manually specified directory, not Docker-managed
       type: none
       device: ${DATA_PATH}/wordpress
+      # Binds the volume to the directory specified above
       o: bind
   base:
     driver: local
@@ -48,5 +51,8 @@ volumes:
       device: ${DATA_PATH}/mariadb
       o: bind
 
+# Creates a Docker network named inception (creates bridge
+# network by default)
+# Bridge network : allows containers to communicate without using raw IP
 networks:
   inception:
