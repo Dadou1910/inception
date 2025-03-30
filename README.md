@@ -3,7 +3,7 @@
 ## 📁 Description
 
 `Inception` est un projet du cursus 42 qui initie à la **virtualisation** et à l'utilisation de **Docker** pour déployer une infrastructure de services sur une machine virtuelle.  
-Il vise à comprendre la création de conteneurs, la gestion de volumes, de réseaux Docker et la configuration de services comme Nginx, WordPress, MariaDB, Redis, etc.
+Il vise à comprendre la création de conteneurs, la gestion de volumes, de réseaux Docker et la configuration de services comme Nginx, WordPress et MariaDB.
 
 > Ce projet est développé pour fonctionner **localement sur la machine de l'étudiant**, avec des fichiers de configuration personnalisés.
 
@@ -38,9 +38,6 @@ Chaque service est documenté ligne par ligne pour aider à la compréhension de
 - Nginx
 - WordPress
 - MariaDB
-- Redis (si bonus)
-- Adminer ou phpMyAdmin (si bonus)
-- FTP ou autres services (si bonus)
 
 ---
 
